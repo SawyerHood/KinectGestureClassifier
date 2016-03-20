@@ -37,8 +37,10 @@ def get_classification_proportion(predicted):
 
 def main():
     #create the training & test sets, skipping the header row with [1:]
-    training, testing = get_train_and_test_data(['orientation/sawyer_or_cross.csv', 'orientation/sawyer_or_other.csv'], 0.9)
-    new_testing = get_data_file('orientation/sawyer_or_other2.csv')
+    training, testing = get_train_and_test_data(['orientation/sawyer_or_cross.csv',
+        'orientation/sawyer_or_other.csv', 'orientation/alanna_cross_or.csv',
+        'orientation/alanna_straight_or.csv'], 0.9)
+    new_testing = get_data_file('orientation/alanna_other_or.csv')
     testing = numpy.concatenate([testing, new_testing])
     testing_target, testing_data = split_into_target_and_data(testing)
     #create and train the random forest
